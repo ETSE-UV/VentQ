@@ -1,12 +1,10 @@
 # VentQ
-Ventilation quality monitoring system
+This is an Open-source and Open-hardware ventilation quality monitoring system
 
-VentQ is an open-source IoT-based system for CO2 and Temp/Hum monitoring. In this development, the sensing nodes are based on NodeMCU ESP8266.
+This IoT-based system is oriented for CO2 and Temp/Hum monitoring. 
 
-The list of materials for the sensing node are:
+The structure of this project is summarized in 3 folders:
+- The sensing hardware is described in "open-hardware-node" folder. It also provides the software to configure the sensing nodes.
+- The collecting information system is based on a REST API that stores the indoor environmental information into a MySQL database. This system is dockerized and the image has been uploaded to this github in "edge-monitoring-server" folder. 
+- The processing of the information is made in the Cloud and is based on a RStudio script querying the database, in specific periods, and applying spatial statistics (kriging) for the mean values of the data collected in each period. This script is collected in "cloud-krigging-spatial-processing" folder.
 
-- CO2 sensor (MH-Z19B)
-- Temperature/Humidity sensor (DHT22)
-- OLED screen
-- RGB led
-- NodeMCU ESP8266
