@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+
+  nodemcu-db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - /path/to/bbdd/folder:/var/lib/mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: n0d3mcu
+      MYSQL_USER: nmcu
+      MYSQL_PASSWORD: n0d3mcu
+      MYSQL_DATABASE: nmcu
+
+  nodemcu-web:
+    depends_on:
+      - nodemcu-db
+    build: ./php
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    volumes:
+      - /path/to/web/folder:/var/www/html
+    links:
+      - "nodemcu-db:datab"
+    stdin_open: true
+    tty: true

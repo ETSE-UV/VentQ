@@ -1,8 +1,12 @@
 # VentQ
 Ventilation quality monitoring system
 
-This folder contains the docker images provided for the monitoring server. 
+VentQ is an open-source IoT-based system for CO2 and Temp/Hum monitoring. In this development, the sensing nodes are based on NodeMCU ESP8266.
 
-This monitoring server is based on a REST API (in the server and in each node) and a MySQL database for data collection.
+The list of materials for the sensing node are:
 
-
+- CO2 sensor (MH-Z19B)
+- Temperature/Humidity sensor (DHT22)
+- OLED screen
+- RGB led
+- NodeMCU ESP8266
